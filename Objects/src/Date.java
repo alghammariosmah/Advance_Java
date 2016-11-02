@@ -49,22 +49,84 @@ public class Date{
             return;
         }
         year = y;
-        if (m <=12 && d < 30){
-            month = m;
-            day = d;
-        }else {
-            if (m > 12 || d > 30){
-                month = m % 12;
-                year += m / 12;
-                if (d < 30){
-                    day = d;
-                }
+        if (m <=12 && d <= 31){
+            if ( m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12){
+                month = m;
+                day = d;
+            }else if (m == 4 || m == 6 || m == 9 || m == 11){
+                month = m;
                 if (d > 30){
                     day = d % 30;
                     month += d / 30;
-                }
+                }else day = d;
+            }else if( m == 2){
+                month = m;
+                if( isLeapingYear(y) ){
+                    if (d >= 29){
+                        day = d % 29;
+                        month += d / 29;
+                    }else day = d;
+                }else if (d >= 28){
+                    day = d % 28;
+                    month += d / 28;
+                }else day = d;
 
             }
+
+        }else {
+            month = m % 12;
+            year += m / 12;
+            if (d < 30){
+                //day = d;
+                System.out.println(year+" "+month+" "+d);
+                set(year,month,day);
+            }
+            if (d > 30){
+                day = d % 30;
+                month += d / 30;
+                System.out.println(year+" "+month+" "+day);
+//                day = d % 30;
+//                month += d / 30;
+            }
+        }
+    }
+
+    public void set2(int y,int m,int d) {
+        if (y <= 0 || m <= 0 || d <= 0) {
+            System.out.println("Don't enter negative integers");
+            return;
+        }
+        year = y;
+        if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+            month = m;
+            if ( d > 31){
+                if (m == 12){
+                    day = d % 31;
+                    m += m / 31;
+                    month = m % 12;
+                    year +=1;
+                }else {
+                    day = d % 31;
+                    month += d / 31;
+                }
+            }else day =d;
+        }else if (m == 4 || m == 6 || m == 9 || m == 11) {
+            month = m;
+            if (d > 30) {
+                day = d % 30;
+                month += d / 30;
+            } else day = d;
+        } else if (m == 2){
+            month = m;
+            if (isLeapingYear(y)) {
+                if (d >= 29) {
+                    day = d % 29;
+                    month += d / 29;
+                } else day = d;
+            } else if (d >= 28) {
+                day = d % 28;
+                month += d / 28;
+            } else day = d;
         }
     }
 
@@ -101,6 +163,10 @@ public class Date{
             return;
         }
         year += y;
+    }
+
+    public static boolean isLeapingYear(int y){
+        return y%400 == 0 || (y%4==0 && y%100 > 0 );
     }
 
 
