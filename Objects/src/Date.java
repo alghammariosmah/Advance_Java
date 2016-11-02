@@ -168,6 +168,10 @@ public class Date{
     public static boolean isLeapingYear(int y){
         return y%400 == 0 || (y%4==0 && y%100 > 0 );
     }
+    
+    public boolean equals1(Date d){
+        return d.day == this.day && d.month ==  this.month && d.year == this.year;
+    }
 
 
     public String toString(){ // this shall return it to string output.

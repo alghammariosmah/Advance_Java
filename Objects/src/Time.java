@@ -2,7 +2,7 @@
  * Created by Al-Ghammari
  */
 public class Time{
-    private static int hour, minute, second;
+    private int hour, minute, second;
     public Time(){
         //hour = minute = second = 0;
         hour = getHour();
@@ -102,6 +102,10 @@ public class Time{
             System.out.println("Please Enter a positive integer and it must be less than 24 hours");
         }
 
+    }
+    
+    public boolean equals1(Time t){
+        return t.second == this.second && t.minute ==  this.minute && t.hour == this.hour;
     }
 
     public String toString(){ // this shall return it to string output.
