@@ -108,7 +108,11 @@ public class Time{
         return t.second == this.second && t.minute ==  this.minute && t.hour == this.hour;
     }
     
-    public enum Mode {AM_PM, H24;}
+//    public void set24Mode(Time t){
+//    	if (t.hour < 12){
+//    		
+//    	}
+//    }
 
     public String toString(){ // this shall return it to string output.
         return hour+":"+minute+":"+second;
