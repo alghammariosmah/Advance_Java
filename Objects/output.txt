@@ -1,0 +1,18 @@
+The output shall be:
+
+Without the constructor the time is s set as: 18:30:50
+Setting the time to 5000 seconds: 1:23:20
+Adding 100 seconds: 1:24:60
+Adding 100 mins: 2:64:60
+Adding 3 hours: 5:64:60
+Setting a new time: 1:23:20
+Does 1:23:20 equals 5:64:60 ?
+false
+With the constructor the date is s set as: 0/0/0
+Setting the Date to: 2/12/1992
+Adding 12 days: 14/12/1992
+Adding 4 months: 14/4/1993
+Adding 1000000 years: 14/4/1001993
+Setting a new date: 14/4/1001993
+Does 14/4/1001993 equals 14/4/1001993 ?
+true
