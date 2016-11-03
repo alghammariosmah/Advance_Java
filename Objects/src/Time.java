@@ -107,6 +107,8 @@ public class Time{
     public boolean equals1(Time t){
         return t.second == this.second && t.minute ==  this.minute && t.hour == this.hour;
     }
+    
+    public enum Mode {AM_PM, H24;}
 
     public String toString(){ // this shall return it to string output.
         return hour+":"+minute+":"+second;

@@ -6,6 +6,8 @@ public class Main {
         Time t = new Time(18, 30, 50);
         Date d = new Date();
         
+        t.set(5000);
+        System.out.println(t);
 //        d.set(1992,12,11);
 //        Date idk = new Date();
 //        idk.set(1992,12,11);
