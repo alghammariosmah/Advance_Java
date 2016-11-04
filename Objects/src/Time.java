@@ -79,12 +79,13 @@ public class Time{
             }
 
         }else if(min > 59 && min <= 1440){
-            minute += min % 60;
-            hour += (min % 3600) / 60;
+            minute += min;
+            hour += (minute % 3600) / 60;
             if (hour > 24){
-                hour -= (min % 3600) / 60;
+                hour -= (minute % 3600) / 60;
                 System.out.println("Sorry, the minutes exceeds 24 hours");
             }
+            minute = minute % 60;
         }else {
             System.out.println("Please Enter a positive integer and it must be less than 1440 minutes");
         }
