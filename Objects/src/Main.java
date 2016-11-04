@@ -13,8 +13,8 @@ public class Main {
         System.out.println("Adding 100 seconds: "+ t);
         t.addMin(100);
         System.out.println("Adding 100 mins: "+ t);
-        t.addHour(3);
-        System.out.println("Adding 3 hours: "+ t);
+        t.addHour(60);
+        System.out.println("Adding 60 hours: "+ t);
         Time test = new Time();
         test.set(5000);
         System.out.println("Setting a new time: "+ test);

@@ -99,7 +99,11 @@ public class Time{
                 System.out.println("Sorry, the hours exceeds 24 hours");
             }
 
-        }else{
+        }else if( h > 24){
+        	h += hour;
+        	hour = h % 24;
+        }
+        else{
             System.out.println("Please Enter a positive integer and it must be less than 24 hours");
         }
 
