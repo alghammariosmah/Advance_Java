@@ -6,24 +6,24 @@ import java.util.NoSuchElementException;
  */
 public class PersonQueue {
     public PersonQueue(){
-        names = new Object[20];
+        items = new Object[20];
     }
 
     public PersonQueue(int capacity) {
-        names = new Object[capacity];
+        items = new Object[capacity];
     }
 
     public void enqueue(Object name) {
-        if (size == names.length)throw new IllegalStateException("Cannot add to full queue");
-        names[tail] = name;
-        tail = (tail + 1) % names.length;
+        if (size == items.length)throw new IllegalStateException("Cannot add to full queue");
+        items[tail] = name;
+        tail = (tail + 1) % items.length;
         size++;
     }
     public Object dequeue() {
         if (size == 0) throw new NoSuchElementException("Cannot remove from empty queue");
-        Object item = names[head];
-        names[head] = null;
-        head = (head + 1) % names.length;
+        Object item = items[head];
+        items[head] = null;
+        head = (head + 1) % items.length;
         size--;
         return item ;
     }
@@ -33,11 +33,11 @@ public class PersonQueue {
     }
 
     public String toString(){
-        return Arrays.toString(names);
+        return Arrays.toString(items);
     }
 
 
-    private Object[] names;
+    public Object[] items;
     private static int size, head, tail = 0;
 
 }
