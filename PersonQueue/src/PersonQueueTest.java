@@ -9,11 +9,11 @@ public class PersonQueueTest {
 
 	@Test
 	public void test() {
-		check(5,"Sam","Sanaa");
-		check(5,"Mark","Austria");
+		checkEnque(5,"Sam","Sanaa");
+		checkEnque(5,"Mark","Austria");
 	}
 	
-	private void check(int n, String name, String address){
+	private void checkEnque(int n, String name, String address){
 		Person person1 = new Person(name, address);
 		PersonQueue q = new PersonQueue(n);
 		array = new Object[n];
@@ -21,6 +21,7 @@ public class PersonQueueTest {
 		enqueueTest(person1);
 		assertTrue(Arrays.equals(q.items, array));
 	}
+
 	
 	 public void enqueueTest(Object name) {
 	        if (size == array.length)throw new IllegalStateException("Cannot add to full queue");
