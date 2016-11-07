@@ -6,31 +6,29 @@ import java.util.NoSuchElementException;
  */
 public class Person {
     public Person(){
-        multi = new Object[20][20];
+        names = new Object[20];
+        addresses = new Object[20];
     }
 
     public Person(int capacity) {
-        multi = new Object[capacity][2];
+        names = new Object[capacity];
+        addresses = new Object[capacity];
     }
 
     public void enqueue(Object name, Object address) {
-        if (size == multi.length)throw new IllegalStateException("Cannot add to full queue");
-        int index1 = 1;
-        int index0 = 0;
-        multi[tail][index0] = name;
-        multi[tail][index1]=address;
-        tail = (tail + 1) % multi.length;
+        if (size == names.length)throw new IllegalStateException("Cannot add to full queue");
+        names[tail] = name;
+        addresses[tail] = address;
+        tail = (tail + 1) % names.length;
         size++;
     }
     public Object dequeue() {
         if (size == 0) throw new NoSuchElementException("Cannot remove from empty queue");
-        int index1 = 1;
-        int index0 = 0;
-        Object item = multi[head][index0];
-        multi[head][index0] = null;
-        Object address = multi[head][index1];
-        multi[head][index1] = null;
-        head = (head + 1) % multi.length;
+        Object item = names[head];
+        names[head] = null;
+        Object address = addresses[head];
+        addresses[head] = null;
+        head = (head + 1) % names.length;
         size--;
         return item + " " + address;
     }
@@ -40,10 +38,12 @@ public class Person {
     }
 
     public String toString(){
-        return Arrays.deepToString(multi);
+        System.out.println(Arrays.toString(names));
+        return Arrays.toString(addresses);
     }
 
-    private Object[][] multi;
-    private static int size, head, tail;
+
+    private Object[] names, addresses;
+    private static int size, head, tail = 0;
 
 }
