@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 public class Person {
     public Person(){
         names = new Object[20];
+        addresses = new Object[20];
     }
 
     public Person(int capacity) {
@@ -29,8 +30,7 @@ public class Person {
         addresses[head] = null;
         head = (head + 1) % names.length;
         size--;
-        Object finalresult = item+" "+address;
-        return finalresult;
+        return item + " " + address;
     }
 
     public boolean isEmpty() {
@@ -38,13 +38,12 @@ public class Person {
     }
 
     public String toString(){
-        System.out.println(Arrays.toString(addresses));
-        return Arrays.toString(names);
+        System.out.println(Arrays.toString(names));
+        return Arrays.toString(addresses);
     }
 
 
     private Object[] names, addresses;
     private static int size, head, tail = 0;
-
 
 }
