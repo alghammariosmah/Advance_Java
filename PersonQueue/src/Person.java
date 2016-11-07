@@ -1,49 +1,27 @@
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-
 /**
- * Created by Admin on 11/6/2016.
+ * Created by Al-Ghammari on 11/7/2016.
  */
 public class Person {
     public Person(){
-        names = new Object[20];
-        addresses = new Object[20];
+        this.person = null;
+        this.address = null;
     }
 
-    public Person(int capacity) {
-        names = new Object[capacity];
-        addresses = new Object[capacity];
+    public Person(String person, String address) {
+        setPerson(person);
+        setAddress(address);
     }
 
-    public void enqueue(Object name, Object address) {
-        if (size == names.length)throw new IllegalStateException("Cannot add to full queue");
-        names[tail] = name;
-        addresses[tail] = address;
-        tail = (tail + 1) % names.length;
-        size++;
-    }
-    public Object dequeue() {
-        if (size == 0) throw new NoSuchElementException("Cannot remove from empty queue");
-        Object item = names[head];
-        names[head] = null;
-        Object address = addresses[head];
-        addresses[head] = null;
-        head = (head + 1) % names.length;
-        size--;
-        return item + " " + address;
+    private String  setAddress(String ad) {
+        return address= ad;
     }
 
-    public boolean isEmpty() {
-        return size == 0;
+    private String setPerson(String p) {
+        return person = p;
     }
 
     public String toString(){
-        System.out.println(Arrays.toString(names));
-        return Arrays.toString(addresses);
+        return "("+"Person: "+person+", address: "+address+")";
     }
-
-
-    private Object[] names, addresses;
-    private static int size, head, tail = 0;
-
+    public String person, address;
 }
