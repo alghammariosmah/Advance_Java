@@ -14,5 +14,8 @@ public class SimpleMath {
         BinaryInteger x = new BinaryInteger();
         x.set(10);
         System.out.println(x+" Binary represetnation for "+10);
+        
+        TowersOfHanoi t = new TowersOfHanoi(3);
+        t.solve();
     }
 }
