@@ -10,6 +10,12 @@ public class Main {
         System.out.println(person);
         person.insert("Osamah2");
         System.out.println(person);
+        person.insert("Osamah");
+        System.out.println(person);
+        person.insert("Osamah3");
+        System.out.println(person);
+        person.delete("Osamah2");
+        System.out.println(person);
 //        person.insertAfter("Ghaleb");
 //        System.out.println(person);
 //        person.insertAfter("Al-Ghammari");

@@ -35,21 +35,23 @@ public class StringList {
         return false;
     }
 
-//    public void delete(){
-//
-//    }
-//
-//    public String toString() {
-//        return;
-//    }
-//
+    public void delete(String input){
+        Node n = head;
+        while(n!=null){
+            if (n.getValue()== input) n.setValue(null);
+            n = n.getNext();
+        }
+    }
+
     public String toString(){
         StringBuffer sb = new StringBuffer();
         sb.append("[");
         Node n = head;
         while(n!=null){
-            if (n!=head) sb.append(",");
-            sb.append(n.getValue());
+            if (n.getValue() != null){
+                if (n!=head) sb.append(",");
+                sb.append(n.getValue());
+            }
             n = n.getNext();
         }
         sb.append("]");
