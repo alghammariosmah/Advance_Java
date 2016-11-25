@@ -7,12 +7,6 @@ public class Student extends Person{
 		super(s);
 	}
 	
-	public void addStudnet(String s){
-		StringBuffer buffer = new StringBuffer();
-		buffer.append(s);
-	}
-	
-	
 	public String toString() { 
 		String s= super.toString(); 
 		s+= " student";
