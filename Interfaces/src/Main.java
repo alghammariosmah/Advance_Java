@@ -3,6 +3,8 @@ import Item.ItemCollection;
 import Item.ItemList;
 import Item.Person;
 import Item.Ranking;
+import Time.SimpleTime;
+import Time.Time;
 
 public class Main {
 	public static void main(String[] args){
@@ -14,8 +16,21 @@ public class Main {
 		il.add(p);
 		il.add(p1);
 		il.add(p2);
-
-		Item r = new Ranking();
-		System.out.println(r.getID());
+		
+		
+		Time t = new SimpleTime();
+		t.set(5000);
+		
+		
+//		Item r = new Ranking(p, t);
+//		System.out.println(r);
+		
 	}
 }
+
+
+
+
+
+
+
