@@ -22,8 +22,8 @@ public class Main {
 		t.set(5000);
 		
 		
-//		Item r = new Ranking(p, t);
-//		System.out.println(r);
+		Item r = new Ranking(p2, t);
+		System.out.println(r);
 		
 	}
 }

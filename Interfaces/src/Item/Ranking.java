@@ -6,6 +6,7 @@ import Time.Time;
 public class Ranking implements Item {
 	Item person;
 	SimpleTime time;
+	
 	public Ranking(){
 		person = null;
 		time = null;
@@ -14,22 +15,17 @@ public class Ranking implements Item {
 		person = p;
 		time = (SimpleTime) t;
 	}
-	
-	
-	@Override
+		
 	public int getID() {
-		return 0;
+		return person.getID();
 	}
 
-	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return person.getName();
 	}
 	
 	public String toString() {
-		
-		return time.toString();
+		return person.toString();
 	}
 	
 }
