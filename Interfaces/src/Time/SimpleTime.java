@@ -107,6 +107,7 @@ public class SimpleTime implements Time {
         }
 
     }
+    
 
     public String toString(){ // this shall return it to string output.
         return hour+":"+minute+":"+second;

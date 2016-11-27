@@ -13,11 +13,11 @@ public class ItemList implements ItemCollection {
 		this.head = null;
 	}
 
-	public void add(Item item) {
+	public void add(Item person) {
 		Node p = new Node();
 		Node temp = head;
-
-		p.setValue(item.toString());
+		
+		p.setValue(person);
 		if (head == null) {
 			head = p;
 			return;
@@ -28,26 +28,26 @@ public class ItemList implements ItemCollection {
 		temp.setNext(p);
 	}
 
-	public boolean remove(Item value) {
+	public boolean remove(Item person) {
 		Node temp = head;
 		Node prev = null;
 		if (head == null) {
 			throw new IllegalStateException("Can not delete from an empty list");
-		} else if (head.getValue().equals(value.toString())) { // deleting the
-																// first
-																// occurrence
+		} else if (head.getValue().equals(person)) { 								
 			head = head.getNext();
 			return true;
-		} else { // Search for other occurrences
+		} 
+		else { // Search for other occurrences
 			temp = head.getNext();
 			prev = head;
 			// doing through all list elements 
-			while (temp != null && temp.getValue().compareTo(value.toString()) < 0) { 
+			while (temp != null && temp.compareTo(person) == false) { 
 				prev = temp;
 				temp = temp.getNext();
 			}
-			if (temp != null && temp.getValue().equals(value.toString())) {
+			if (temp != null && temp.getValue().equals(person)) {
 				prev.setNext(temp.getNext());
+				
 				return true;
 			} else {
 				return false;
@@ -55,10 +55,10 @@ public class ItemList implements ItemCollection {
 		}
 	}
 	
-	public boolean contains(String person){
+	@Override
+	public boolean contains(Item person){
         Node n = head;
-        while(n!=null && n.getValue().compareToIgnoreCase(person) <= 0){
-        	if (n.getValue().equalsIgnoreCase(person))return true;
+        while(n!=null){
         	if (n.getValue()== person)return true;
             n = n.getNext();
         }
