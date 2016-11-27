@@ -11,11 +11,10 @@ public class Person implements Item {
 	} 
 	
 	public int getID(){
-		
 		return id;
 	}
 	
-	public void setID(int n){
+	private void setID(int n){
 		id = n;
 	}
 	
@@ -23,7 +22,7 @@ public class Person implements Item {
 		return name;
 	}
 	
-	public void setName(String n){
+	private void setName(String n){
 		name = n;
 	}
 	

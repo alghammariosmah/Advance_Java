@@ -44,8 +44,9 @@ public class Main {
 		rankings.addRanking(r3);
 		rankings.addRanking(r);
 		
-		
+		System.out.println(rankings);
 		System.out.println(rankings.bestRanking());
+		
 		
 		
 	}
