@@ -20,8 +20,48 @@ public class Race {
 		while (temp.getNext() != null) {
 			temp = temp.getNext();
 		}
-		temp.setNext(person_Time);	
+		if (contains(R)){
+			remove(R);
+		}else if (! contains(R)){
+			temp.setNext(person_Time);
+		}
 	}
+	
+	public boolean remove(Item person) {
+		Node temp = head;
+		Node prev = null;
+		if (head == null) {
+			throw new IllegalStateException("Can not delete from an empty list");
+		} else if (head.getValue().equals(person)) { 								
+			head = head.getNext();
+			return true;
+		} 
+		else { // Search for other occurrences
+			temp = head.getNext();
+			prev = head;
+			// doing through all list elements 
+			while (temp != null && temp.compareTo(person) == false) { 
+				prev = temp;
+				temp = temp.getNext();
+			}
+			if (temp != null && temp.getValue().equals(person)) {
+				prev.setNext(temp.getNext());
+				
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+	
+	public boolean contains(Item person){
+        Node n = head;
+        while(n!=null){
+        	if (n.getValue().getName()== person.getName())return true;
+            n = n.getNext();
+        }
+        return false;
+    }
 	
 	private void bestRanking(Ranking R){
 		StringBuffer sb = new StringBuffer();

@@ -55,7 +55,6 @@ public class ItemList implements ItemCollection {
 		}
 	}
 	
-	@Override
 	public boolean contains(Item person){
         Node n = head;
         while(n!=null){

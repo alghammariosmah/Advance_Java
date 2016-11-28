@@ -44,6 +44,8 @@ public class Main {
 		rankings.addRanking(r3);
 		rankings.addRanking(r);
 		
+		t2.set(70002);
+		r2 = new Ranking(p2, t2);
 		System.out.println(rankings);
 		System.out.println(rankings.bestRanking());
 		
