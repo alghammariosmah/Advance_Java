@@ -99,6 +99,12 @@ public class Race {
 		return seconds;
 	}
 	
+	public void compareToList(Item n){
+		Ranking r = (Ranking) n;
+		int t = secondConverter(r);
+		
+	}
+	
 	
 	
 	
