@@ -22,6 +22,7 @@ public class Race {
 		if (contains(r)){
 			remove(r);
 		}else if (! contains(r)){
+			
 			temp.setNext(person_Time);
 		}
 	}
@@ -99,9 +100,24 @@ public class Race {
 		return seconds;
 	}
 	
-	public void compareToList(Item n){
-		Ranking r = (Ranking) n;
-		int t = secondConverter(r);
+	private double average(){
+		Node n = head;
+		int sum = 0, i = 0;
+		while (n != null) {
+			Ranking r2 = (Ranking)n.getValue();
+			int t2 = secondConverter(r2);
+			sum = sum + t2;
+			i+=1;
+		}
+		return  sum / i;
+	}
+	
+	public int compareToList(Item n){
+		Ranking r1 = (Ranking) n;
+		int t = secondConverter(r1);
+		if (t < average()){
+			return -1;
+		}else return 1;
 		
 	}
 	

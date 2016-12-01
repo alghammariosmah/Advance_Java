@@ -47,8 +47,11 @@ public class Main {
 		t2.set(70002);
 		r2 = new Ranking(p2, t2);
 		rankings.addRanking(r2);
+		
 		System.out.println(rankings);
 		System.out.println(rankings.bestRanking());
+		
+		rankings.compareToList(r2);
 		
 		
 		
