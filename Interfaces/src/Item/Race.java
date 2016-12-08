@@ -22,10 +22,43 @@ public class Race {
 		if (contains(r)){
 			remove(r);
 		}else if (! contains(r)){
-			
 			temp.setNext(person_Time);
 		}
 	}
+	
+	public void addRanking2(Ranking r){
+		Node person_Time = new Node();
+		int currentTime = secondConverter(r);
+		person_Time.setValue(r);
+		int previousTime = 0, nextTime = 0;
+		
+		if (head != null){
+			Ranking r1 = (Ranking) head.getValue();
+			previousTime = secondConverter(r1);
+		}
+		if (head == null){ // case 1: list is empty
+			head = person_Time;
+		}else if( previousTime >= currentTime){
+			head = new Node(r, head);
+		}else{
+			Node p = head.getNext();
+			Node q = head;
+			while (q.getNext() != null) {
+				Ranking r2 = (Ranking) p.getValue();
+				nextTime = secondConverter(r2);
+				if (nextTime >= currentTime) { 
+					q.setNext(new Node (r,p));
+					return;
+				}else if (nextTime <= currentTime){
+					q = p; 
+					q = q.getNext();
+					return;
+				}
+			}
+			q.setNext(person_Time);
+		}
+	}
+		
 	
 	private void bestRanking1(){
 		Node n = head;
@@ -104,20 +137,31 @@ public class Race {
 		Node n = head;
 		int sum = 0, i = 0;
 		while (n != null) {
-			Ranking r2 = (Ranking)n.getValue();
-			int t2 = secondConverter(r2);
-			sum = sum + t2;
+			Ranking r1 = (Ranking)n.getValue();
+			int t = secondConverter(r1);
+			sum = sum + t;
 			i+=1;
 		}
 		return  sum / i;
 	}
 	
-	public int compareToList(Item n){
-		Ranking r1 = (Ranking) n;
-		int t = secondConverter(r1);
-		if (t < average()){
-			return -1;
-		}else return 1;
+	public void getOrdered(){
+		Node person_Time = new Node();
+		Node temp = head;
+		
+		int bestRank = secondConverter(rankingTemp);
+		
+		while (temp != null) {
+			Ranking r = (Ranking)temp.getValue();
+			int t = secondConverter(r);
+			if ( temp.getNext() != null){
+				Ranking r1 = (Ranking)temp.getNext().getValue();
+				int t1 = secondConverter(r1);
+				//System.out.println(t1);
+			}
+			//int t1 = secondConverter(r1);
+			temp = temp.getNext();
+		}
 		
 	}
 	
@@ -130,7 +174,8 @@ public class Race {
 		Node n = head;
 		while (n != null) {
 			Ranking r = (Ranking)n.getValue();
-			sb.append(r.getName()+" ID: "+r.getID()+" with the time: "+r.time);
+			sb.append(r.getName()+" with the time: "+r.time);
+			//+" ID: "+r.getID()
 			if (n.getNext() != null)
 				sb.append(",");
 			n = n.getNext();

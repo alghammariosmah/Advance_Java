@@ -7,6 +7,11 @@ public class Node {
 	public Node(){
 		this(null,null);
 	}
+	
+	public Node(Item value){
+		this.value = value;
+		this.next = null;
+	}
 	/**
 	 * Constructor to initialize node and value.
 	 * @param value value of type String
@@ -56,6 +61,6 @@ public class Node {
 	/**
 	 * Node to hold the reference of next object.
 	 */
-	private Node next;
+	public Node next;
 	
 }

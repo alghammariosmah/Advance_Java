@@ -21,37 +21,46 @@ public class Main {
 		il.add(p3);
 		
 		Time t = new SimpleTime();
-		t.set(5000);
+		t.set(1);
 		Ranking r = new Ranking(p, t);
 		
 		Time t1 = new SimpleTime();
-		t1.set(3000);
+		t1.set(2);
 		Ranking r1 = new Ranking(p1, t1);
 		
 		Time t2 = new SimpleTime();
-		t2.set(1000);
+		t2.set(3);
 		Ranking r2 = new Ranking(p2, t2);
 		
 		Time t3 = new SimpleTime();
-		t3.set(6000);
+		t3.set(4);
 		Ranking r3 = new Ranking(p3, t3);
 		
 		Race rankings = new Race();
 		
-		
-		rankings.addRanking(r2);
-		rankings.addRanking(r1);
-		rankings.addRanking(r3);
-		rankings.addRanking(r);
-		
-		t2.set(70002);
-		r2 = new Ranking(p2, t2);
-		rankings.addRanking(r2);
-		
+		rankings.addRanking2(r3);
+		rankings.addRanking2(r);
+		rankings.addRanking2(r1);
+		rankings.addRanking2(r2);
+
+
 		System.out.println(rankings);
-		System.out.println(rankings.bestRanking());
 		
-		rankings.compareToList(r2);
+//		rankings.addRanking(r2);
+//		rankings.addRanking(r1);
+//		rankings.addRanking(r3);
+//		rankings.addRanking(r);
+		
+
+		
+//		t2.set(70002);
+//		r2 = new Ranking(p2, t2);
+//		rankings.addRanking(r2);
+//		
+//		System.out.println(rankings);
+//		System.out.println(rankings.bestRanking());
+//		
+//		rankings.getOrdered();
 		
 		
 		
