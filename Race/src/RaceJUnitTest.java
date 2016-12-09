@@ -11,15 +11,20 @@ import Race.Race;
 import Ranking.Ranking;
 
 public class RaceJUnitTest {
+	@Test
+	public void test(){
+		testPerson();
+		testRanking();
+		testRace();
+	}
 
-	
+		
 	public void testPerson() {
 		Item p1= new Person("Ben");
 		assertEquals("Ben", p1.getName());
 		assertEquals(1, p1.getID());
 	}
 	
-
 	public void testRanking(){
 		Item p1= new Person("Ben");
 		@SuppressWarnings("deprecation")
@@ -32,7 +37,6 @@ public class RaceJUnitTest {
 		assertEquals("Ben", r1.getName());
 	}
 	
-	@Test
 	public void testRace(){
 		Item p1= new Person("Ben");
 		Item p2 = new Person("Sam");
