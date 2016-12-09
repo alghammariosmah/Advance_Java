@@ -10,22 +10,35 @@ import Item.Person;
 import Race.Race;
 import Ranking.Ranking;
 
+/**
+ * Junit test for the existing methonds and classes in Race
+ * @author Al-ghammari
+ *
+ */
 public class RaceJUnitTest {
+	/*
+	 * main function
+	 */
 	@Test
 	public void test(){
 		testPerson();
-		testRanking();
+		testTime();
 		testRace();
 	}
 
-		
+	/*
+	 * Checking the String similarity with the auto-given ID
+	 */
 	public void testPerson() {
 		Item p1= new Person("Ben");
 		assertEquals("Ben", p1.getName());
 		assertEquals(1, p1.getID());
 	}
 	
-	public void testRanking(){
+	/*
+	 * Checking the given variables according to the given times
+	 */
+	public void testTime(){
 		Item p1= new Person("Ben");
 		@SuppressWarnings("deprecation")
 		Time t1 = new Time(1,10,00);
@@ -37,6 +50,9 @@ public class RaceJUnitTest {
 		assertEquals("Ben", r1.getName());
 	}
 	
+	/*
+	 * Checking the race the final list results in Race according to the added rankings
+	 */
 	public void testRace(){
 		Item p1= new Person("Ben");
 		Item p2 = new Person("Sam");
