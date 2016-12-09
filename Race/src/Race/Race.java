@@ -9,7 +9,7 @@ import Ranking.Ranking;
 
 
 public class Race {
-	List<Ranking> rankings = new ArrayList<>();
+	public List<Ranking> rankings = new ArrayList<>();
 	Time time;
 	
 	public void addRanking(Ranking r){
